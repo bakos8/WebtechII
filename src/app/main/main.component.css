@@ -1,0 +1,131 @@
+h1 {
+    font-size: 32px;
+    font-weight: 300;
+    color: #4c4c4c;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.deletebtn {
+    margin-left: 50px;
+    font-size: 20px;
+    color: #BC0303;
+}
+
+.signoutbtn {
+    font-size: 16px;
+    color: white;
+    align-content: center;
+    margin: auto;
+    margin-right: 8px;
+}
+
+.add{
+    float: right;
+    margin-left: 0px;
+    margin-right: 10px;
+    background-color: green;
+}
+
+button {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    margin-left: 10px;
+    display: inline-block;
+    float: left;
+    text-decoration: none;
+    width: 120px;
+    height: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #BC0303;
+    transition: all 0.1s linear 0s;
+    top: 0px;
+    position: relative;
+}
+
+button:hover {
+    top: 3px;
+    background-color: #2e458b;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+}
+
+button:disabled{
+    background-color: grey;
+    transition: none;
+
+}
+
+table {
+    font-size: 18px;
+    text-align: left;
+    vertical-align: auto;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+th {
+    padding-left: 40px;
+    padding-right: 120px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px;
+    background-color: lightsteelblue;
+    text-align: left;
+}
+
+tbody th:last-child {
+    padding-right: 50px;
+}
+
+tr {
+    background-color: whitesmoke;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: white;
+}
+
+tr:hover td {
+    background-color: wheat;
+}
+
+td {
+    padding-left: 40px;
+    padding-right: 120px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+    text-align: left;
+}
+
+tbody td:last-child {
+    padding-right: 50px;
+}
+
+.testbox {
+    margin: 50px auto;
+    width: 1500px;
+    min-height: 20vh;
+    padding-bottom: 20px;
+    -webkit-border-radius: 8px/7px;
+    -moz-border-radius: 8px/7px;
+    border-radius: 8px/7px;
+    background-color: #ebebeb;
+    -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
+    -moz-box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
+    border: solid 1px #cbc9c9;
+}
+
+input.ng-invalid.ng-touched{
+    border: red 2px solid;
+}

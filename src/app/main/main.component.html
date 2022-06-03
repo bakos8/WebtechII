@@ -1,0 +1,103 @@
+<body>
+
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet'
+            type='text/css'>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    </head>
+
+    <div class="testbox">
+        <h1>
+            <button (click)="singOut()">
+                <i class="bi bi-box-arrow-right signoutbtn"></i>
+                Sign out
+            </button>
+            <b>Cars in dealership</b>
+            <button class="add" (click)="open(content)">
+                <i class="bi bi-plus-square signoutbtn"></i>
+                Add a car
+            </button>
+        </h1>
+
+        <table>
+            <thead>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Color</th>
+                <th>Odometer</th>
+                <th>Price</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let car of cars">
+                    <td>{{car.make}}</td>
+                    <td>{{car.model}}</td>
+                    <td>{{car.year}}</td>
+                    <td>{{car.color}}</td>
+                    <td>{{car.odometer}}</td>
+                    <td>{{car.price}} <i class="bi bi-x-square-fill deletebtn" (click)="deleteData(car._id)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">
+                Add a new car
+            </h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <form [formGroup]="carRegisterForm" (ngSubmit)="onSave()">
+                    <label>Make</label>
+                    <input id="make" class="form-control" name="make" formControlName="make">
+                    <div>
+                        <span style="color: red"
+                            *ngIf="carRegisterForm.get('make')?.touched && carRegisterForm.get('make')?.invalid">
+                            Please add the manufacturer</span>
+                    </div>
+                    <label>Model</label>
+                    <input id="model" class="form-control" name="model" formControlName="model">
+                    <div>
+                        <span style="color: red"
+                            *ngIf="carRegisterForm.get('model')?.touched && carRegisterForm.get('model')?.invalid">
+                            Please add the model</span>
+                    </div>
+                    <label>Year</label>
+                    <input id="year" class="form-control" name="year" formControlName="year">
+                    <div>
+                        <span style="color: red"
+                            *ngIf="carRegisterForm.get('year')?.touched && carRegisterForm.get('year')?.invalid">
+                            Please add the date of manufacture, only numbers</span>
+                    </div>
+                    <label>Color</label>
+                    <input id="color" class="form-control" name="color" formControlName="color">
+                    <div>
+                        <span style="color: red"
+                            *ngIf="carRegisterForm.get('color')?.touched && carRegisterForm.get('color')?.invalid">
+                            Please add the color</span>
+                    </div>
+                    <label>Odometer</label>
+                    <input id="odometer" class="form-control" name="odometer" formControlName="odometer">
+                    <div>
+                        <span style="color: red"
+                            *ngIf="carRegisterForm.get('odometer')?.touched && carRegisterForm.get('odometer')?.invalid">
+                            Please add the milage, only numbers</span>
+                    </div>
+                    <label>Price</label>
+                    <input id="price" class="form-control" name="price" formControlName="price">
+                    <div>
+                        <span style="color: red"
+                            *ngIf="carRegisterForm.get('price')?.touched && carRegisterForm.get('price')?.invalid">
+                            Please add the sale price, only numbers</span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="add" (click)="modal.close('Save click')">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ng-template>
+</body>
