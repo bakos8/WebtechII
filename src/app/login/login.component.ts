@@ -11,6 +11,7 @@ import { User } from '../models/user';
 })
 export class LoginComponent implements OnInit {
   users: User[] = [];
+  foundUser: boolean = false;
 
   loginForm = new FormGroup(
     {
@@ -27,14 +28,17 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.appService.getUsers().subscribe((data) => {
     this.users = data as User[];
+    this.foundUser = false
 
       for (let user of this.users) {
         if (user.name === this.loginForm.value.username && user.password === this.loginForm.value.password ) {
           localStorage.setItem('token', user.name);
           this.router.navigateByUrl('/home');
-        } else{
-          alert("Invalid credentials")
+          this.foundUser = true;
         }
+      }
+      if(this.foundUser === false){
+        alert("Invalid credentials")
       }
     });
   }
